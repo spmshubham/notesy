@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Notes</title>
+    <style>
+        body {
+            background-color: #333;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        #banner {
+            width: 100%;
+            max-width: 100%;
+        }
+
+        #container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        #noteText {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #555;
+            border-radius: 5px;
+            margin: 10px 0;
+            background-color: #444;
+            color: #fff;
+        }
+
+        #notes {
+            background-color: #444;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .note {
+            border: 1px solid #555;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            background-color: #555;
+        }
+    </style>
+</head>
+
+<body>
+    <img id="banner" src="zonned.jpeg" alt="">
+    <div id="container">
+        <h1>Hello, World!</h1>
+        <div>
+            <textarea id="noteText" placeholder="Add a note..."></textarea>
+            <button onclick="addNote()">Add Note</button>
+        </div>
+        <div id="notes">
+            <!-- Notes will be displayed here -->
+        </div>
+    </div>
+
+    <script>
+        // Function to add a new note
+        function addNote() {
+            const noteText = document.getElementById("noteText").value;
+            if (noteText.trim() !== "") {
+                const noteContainer = document.getElementById("notes");
+                const noteDiv = document.createElement("div");
+                noteDiv.className = "note";
+                noteDiv.textContent = noteText;
+                noteContainer.appendChild(noteDiv);
+                document.getElementById("noteText").value = "";
+            }
+        }
+    </script>
+</body>
+</html>
